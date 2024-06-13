@@ -1,0 +1,105 @@
+<div class="body">
+    <div class="container">
+      <header>Warranty Registration</header>
+  <form [formGroup]="exampleForm">
+  
+    <div class="details personal">
+      <span class="title">Personal Details</span>
+  
+    <div class="fields">
+      <div class="first">
+        <label>Enter First name</label>
+        <input type="text" placeholder="Ex:Vrushabh" formControlName="firstName" >
+        <span style="color:red;" *ngIf="user && user.invalid && (user.dirty || user.touched)">write firstnamefirst letter capital</span> 
+      </div>
+  
+    <div class="first">
+      <label>Enter Last name</label>
+      <input type="text" placeholder="Ex:Gaddamwar" formControlName="lastName" >
+      <span style="color:red;" *ngIf="user2 && user2.invalid && (user2.dirty || user2.touched)">write lastname first letter capital</span> 
+    </div>
+  
+    <div class="first">  
+      <label>Email: </label> 
+      <input  type="text" placeholder="Email*" formControlName="email">
+      <span  style="color:red;" *ngIf="email && email.invalid  && (email.dirty || email.touched)">This field is not valid</span> 
+    </div> 
+  </div>
+  
+    <div class="first">  
+      <label>Phone no: </label> 
+      <input  type="text" placeholder="Enter 10 digit mobile number" formControlName="phone"> 
+      <span  style="color:red;" *ngIf="phone && phone.invalid && (phone.dirty || phone.touched)">This field is not valid</span>
+    </div> 
+  
+    
+    <div class="fields">   
+      <div class="first"> 
+        <label>street address: </label>  
+        <input style="padding-left: 20px;" type="text" placeholder="street" formControlName="street">  
+        <span style="color:red;" *ngIf="street && street.invalid && (street.dirty || street.touched)">This field is not valid</span> 
+      </div> 
+    
+      <div class="first"> 
+        <label>street address line 2: </label>   
+        <input style="padding-left: 20px;" type="text" placeholder="street" formControlName="street2">  
+        <span style="color:red;" *ngIf="street2 && street2.invalid && (street2.dirty || street2.touched)">This field is not valid</span>   
+      </div>
+    
+        <div class="first"> 
+          <label>City: </label>   
+          <input style="padding-left: 20px;" type="text" placeholder="city" formControlName="city" (keydown)="onKeyDown($event)">  
+          <span style="color:red;" *ngIf="city && city.invalid && (city.dirty || city.touched)">This field is not valid</span>   
+        </div> 
+      </div> 
+  
+        <div class="first"> 
+          <label>Zip Code: </label>  
+          <input style="padding-left: 20px;" type="number" placeholder="zip" formControlName="zip">  
+          <span style="color:red;" *ngIf="zip && zip.invalid && (zip.dirty || zip.touched)">This field is not valid</span> 
+        </div> 
+        </div>
+  
+  <div style="font-size: 20px;">Product Information</div>
+  
+  <div class="fields">
+  <div class="first"> 
+    <label>Model Number: </label>  
+    <input style="padding-left: 20px;" type="number" placeholder="model number" formControlName="model">  
+    <span style="color:red;" *ngIf="model && model.invalid && (model.dirty || model.touched)">This field is not valid</span> 
+  </div>
+  
+  <div class="first">   
+    <label>Date of purchase: </label>  
+    <input style="padding-left: 20px;" type="date" placeholder="date" formControlName="date"> 
+    <span style="color:red;" *ngIf="date && date.invalid && (date.dirty || date.touched)">This field is not valid</span>  
+  </div> 
+  
+  <div class="first">
+    <label>Purchase Source: </label>  
+    <select formControlName="selectorControl">
+      <option value="">-- Select Source --</option>
+      <option value="Shop">Shop</option>
+      <option value="Amazon">Amazon</option>
+      <option value="Flipkart">Flipkart</option>
+    </select>
+      <div *ngIf="selectorControl && selectorControl.invalid && (selectorControl.dirty || selectorControl.touched)">Please select an option.</div>
+  </div>
+  </div>
+  
+  <div style="font-size: 15px;margin-top: 10px;">Product Category</div> 
+  <div> 
+     <input type="radio" id="moblie" name="moblie" value="moblie" formControlName="item">  
+     <label for="mobile">moblie</label><br>  
+  
+     <input type="radio" id="laptop" name="laptop" value="laptop" formControlName="item">  
+     <label for="laptop">laptop</label><br>  
+  
+     <input type="radio" id="earphone" name="earphone" value="earphone" formControlName="item">  
+     <label for="earphone">earphone</label>    
+  </div>  
+  
+    <button type="submit" (click)="submitForm()" [disabled]="!exampleForm.valid">Submit</button>
+  </form>
+  </div>
+  </div>

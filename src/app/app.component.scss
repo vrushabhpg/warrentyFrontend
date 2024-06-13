@@ -1,0 +1,451 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+mat-toolbar {
+    background-color: #f99088; /* Red */
+  }
+  
+  .app
+  {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: blueviolet;
+    font-size: 30px;
+    background-color: aquamarine;
+  }
+
+  .image
+  {
+    height: 50%;
+    width: 80%; 
+    max-width: 80%;   
+  }
+  .mat-mdc-radio-button ~ .mat-mdc-radio-button {
+    margin-left: 16px;
+  }
+
+  input[type="text"]::placeholder {
+    text-align: left;
+    padding-left: 5px; /* add some padding to prevent text from being too close to the border */
+  }
+// *{
+//     margin: 0;
+//     padding: 0;
+//     box-sizing: border-box;
+//     font-family: 'Poppins', sans-serif;
+// }
+// .body
+// {
+//     min-height: 100vh;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     background: rgb(64, 244, 190);
+// }
+// .container
+// {
+//     position: relative;
+//     max-width: 900px;
+//     width: 100%;
+//     border-radius: 6px;
+//     padding: 30px;
+//     margin: 0 15px;
+//     background-color: #fff;
+//     box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+// }
+// .container header{
+//     position: relative;  
+//     font-size:20px;
+//     font-weight:600;
+//     color: #333;
+// }
+
+// .container header::before{
+//     content:"";
+//     position: absolute;
+//     left: 0;
+//     bottom: -2px;
+//     height: 3px; 
+//     width: 27px;
+//     border-radius: 8px;
+//     background-color: #4070f4;
+// }
+
+// .container form{
+//     position: relative;
+//     margin-top: 16px;
+//     min-height:490px;
+//     background-color: #f2f2f2;
+// }
+ 
+// container form .details{
+//     margin-top: 30px;
+// }
+
+// .container form .title{
+//     display: block;
+//     margin-bottom: 8px;
+//     font-size: 16px;
+//     font-weight: 500;
+//     margin: 6px 0;
+//     color: #333;    
+// }
+
+// .container form .fields{
+//     display: flex;
+//     align-items: center;
+//     justify-content: space-between;
+// }
+
+// .first{
+//     display: flex;
+//     width: calc(100% / 3 - 15px);
+//     flex-direction: column;
+//     margin:4px 0;
+// }
+
+// .first label{
+//     font-size: 12px;
+//     font-weight: 500;
+//     color: #2e2e2e;
+// }
+
+// .first input{
+//     outline: none;
+//     font-size: 14px;
+//     font-weight: 400;
+//     color: #333;
+//     border-radius: 5px;
+//     border: 1px solid #aaa;
+//     padding:0 15px;
+//     height: 42px;
+//     margin: 8px 0;
+// }
+// .first select{
+//     outline: none;
+//     font-size: 14px;
+//     font-weight: 400;
+//     color: #333;
+//     border-radius: 5px;
+//     border: 1px solid #aaa;
+//     padding:0 15px;
+//     height: 42px;
+//     margin: 8px 0;
+// }
+
+
+// .form input:is(:focus, :valid)
+// {
+//     box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+// }
+
+// .container form button{
+//     display: flex;
+//     align-items: center;
+//     justify-content:center;
+//     height: 45px;
+//     max-width: 200px;
+//     border: none;
+//     width: 100%;
+//     outline: none;
+//     border-radius: 8px;
+//     margin: 25px 0;
+//     color: #232020;
+//     background-color:rgb(64, 244, 190);
+//     transition: all 0.3s linear;
+// }
+
+// form button:hover{
+//     background-color: #4070f4;
+// }
+
+// .tform 
+// { 
+//     display: flex; 
+//     flex-direction:column; 
+//     align-items: center; 
+//     align-self: center; 
+//     height: 100%; 
+//     width: 60%; 
+//     margin-left: 20%; 
+// } 
+
+// .namehold{ 
+//     display:flex; 
+//     flex-direction: row; 
+//     align-items: center; 
+//     padding-top: 10%; 
+// } 
+// .email 
+// { 
+//    padding-top: 30px; 
+// } 
+
+// .date 
+// { 
+//   padding-top: 30px; 
+// } 
+
+// .button{ 
+//     padding-left: 80px; 
+//     padding-top: 60px; 
+// } 
+
+// .phone 
+// { 
+//     padding-top: 30px; 
+// }
+
+// .Address{ 
+//     display:flex; 
+//     flex-direction: row; 
+//     padding-top: 5%;
+// } 
+
+// .zip
+// {
+//     display:flex; 
+//     flex-direction: row; 
+//     padding-top: 5%;
+// }
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// .form-container {
+//     display: flex;
+//     flex-direction: column;
+//     margin-bottom: 20px;
+//     margin-top: 20px;
+//     margin-left: 20px;
+//     width: 60%;
+//     border: 1px solid blueviolet;
+//     background-color: #c8d0c8;
+//   }
+  
+//   .form-container label {
+//     margin-bottom: 10px;
+//   }
+  
+//   .form-container input[type="text"],
+//   .form-container input[type="date"] {
+//     padding: 10px;
+//     border-radius: 5px;
+//     border: 1px solid #ccc;
+//     margin-bottom: 10px;
+//     margin-right: 70%;
+//   }
+  
+//   .form-container span.error {
+//     font-size: 12px;
+//     margin-bottom: 10px;
+//     color: red;
+//   }
+  
+//   button[type="submit"] {
+//     background-color: #4CAF50;
+//     color: white;
+//     padding: 10px;
+//     border: none;
+//     border-radius: 5px;
+//     cursor: pointer;
+//   }
+  
+//   button[type="submit"]:disabled {
+//     background-color: #ccc;
+//     cursor: not-allowed;
+//     margin-left: 20px;
+//   }
+  
+  
+// html{
+//     font-size: 10px;
+//     font-family: sans-serif;
+// }
+// *{
+//     padding:0;
+//     margin: 0;
+// }
+
+// nav{
+//  display: flex;
+//  justify-content: space-between;
+//  padding:20px 30px;
+//  font-size: 16px;
+//  background-color:aqua;
+// }
+// .menu{
+//     display:flex;
+//     list-style: none;
+//     gap:2rem;
+// }
+// .logo
+// {
+//     font-size: 20px;
+//     font-weight: 700;
+//     color: rgb(61, 63, 62);
+//     letter-spacing: 0.5rem;
+// }
+// .hero{
+//     height: 50vh;
+//     background-image: url(https://media.istockphoto.com/id/157532000/photo/selection-of-multicolored-shirts.jpg?s=612x612&w=0&k=20&c=FgXUb73GRmoP3D_V5mRb4fpAjYA5MGOSVfG7T6VVcXY=);
+//     background-size: cover;
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     justify-content: center;
+// }
+
+// .img1{
+//     width: 20rem;
+// }
+
+// .gallary-sec{
+//     display: grid;
+//     max-width: 1200px;
+//     margin: 0 auto;
+//     grid-template-columns: 1fr 2fr;
+//     justify-items: center;
+//     align-items: center;
+//     padding: 5rem;
+// }
+
+// .gallary{
+//     display: grid;
+//     width: 80%;
+//     grid-template-columns: 1fr ,2fr;
+//     gap: 3rem;
+// }
+// .para
+// {
+//     font-size: 2rem;
+// }
+
+
+
+
+
+// .example-card {
+//     max-width: 400px;
+//   }
+  
+//   .example-header-image {
+//     background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+//     background-size: cover;
+//   }
+
+
+// mat-sidenav-container
+// {
+//     height:100%;
+//     width: 202px;
+//     margin-top: 0px;
+//     position: fixed;
+//     background-color: rgba(229, 231, 231, 0.66);
+//     border: 1px solid black;
+// }
+// .logo{
+//     border: 1px solid black;
+// }
+
+// .list
+// {
+//     margin-bottom: 10px;
+//     margin-top: 20px;
+//     margin-left: 20px;
+//     margin-right: 5px;
+// }
+// .col
+// {
+//     color: blueviolet;
+//     font-size: 20px;
+// }
+// .til
+// {
+//     margin-left: 20%
+// }
+// .container {
+//     position: relative;
+//   }
+  
+//   .box1 {
+//     background-color:  rgba(229, 231, 231, 0.66);
+//     height: 100px;
+//     width: 200px;
+//     position: absolute;
+//     top: 0px;
+//     left: 0px;
+//     z-index: 1;
+//     border: 1px solid black;
+//   }
+
+//   .box2 {
+//     background-color:  rgba(229, 231, 231, 0.66);
+//     height: 100px;
+//     width: 100%;
+//     border: 1px solid black;
+//   }
+  
+//   .boxin{
+//     color: rgb(29, 33, 33);
+//     background-color:  rgba(229, 231, 231, 0.66);
+//     margin-left: 40%;
+//     margin-top: 40px;
+//     padding-top: 10px;
+//     height: 40px;
+//     width: 59%;
+//   }
+
+//   .flex-container {
+//     display: flex;
+//     margin-left: 20%;
+//     margin-top: 10px;
+//     height: 300px; /* set height */
+//     width: 900px; /* set width */
+//   }
+  
+//   .flex-item {
+//     flex: 1;
+//     background-color: #f1f1f1;
+//     border: 1px solid black;
+//   }
+  
+// table {
+//   width: 100%;
+// }
+

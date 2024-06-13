@@ -1,0 +1,663 @@
+
+<div style="margin-left: 35%;">
+<div *ngIf="isLogedIn==0 && nosinup==0">
+  <h2 style="color:rgb(19, 100, 94)">Login</h2>
+
+    <div style="color: rgb(58, 147, 174);">Username:</div><input type="text" [(ngModel)]="username"><br>
+    <div style="color: rgb(32, 148, 134);">password:</div><input type="text" [(ngModel)]="password"><br>
+   
+    <button (click)="login()"><strong>login</strong></button><br>
+    <button (click)="sign()"><strong>signup</strong></button><br>
+
+</div>
+</div>
+<div *ngIf="isLogedIn==1">
+<mat-toolbar>
+  <mat-toolbar-row>
+    <span style="font-size: 20px;color: blue;">Logitech</span>
+    <div style="margin-left: 60%;">
+      <button class="btn btn-primary" (click)="main()">Home</button>
+    </div>
+    <div style="margin-left: 3%;">
+      <button class="btn btn-primary" (click)="goToFirstComponent()">Register Warrenty</button>
+    </div>
+    <div style="margin-left: 3%;">
+      <button class="btn btn-primary" (click)="goToSecondComponent()" *ngIf="hidebtn==0">All Customer</button>
+      <button style="margin-left: 3%;" class="btn btn-primary" (click)="logout()">Logout</button>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+<router-outlet></router-outlet>
+<div>
+  <div class="app">Welcome to Logitech</div>  
+</div>
+</div>
+
+<div style="margin-left: 35%;">
+<div *ngIf="signup==1">
+  <h2 style="color:rgb(19, 100, 94)">Sign Up</h2>
+
+  <form [formGroup]="SignupForm">
+  <div style="color: rgb(58, 147, 174);">
+    <label>Set Username</label>
+    <input type="text" placeholder="username" formControlName="username">
+    <span style="color:red;" *ngIf="user && user.invalid && (user.dirty || user.touched)">write firstnamefirst letter capital</span> 
+
+  </div>
+  <div style="color: rgb(32, 148, 134);">
+    <label>Set Password</label>
+    <input type="text" placeholder="Password" formControlName="password">
+    <span style="color:red;" *ngIf="pass && pass.invalid && (pass.dirty || pass.touched)">write firstnamefirst letter capital</span> 
+
+  </div>
+  <div>
+    <mat-radio-group aria-label="Select an option" formControlName="role" >
+      <mat-radio-button value="1">Admin</mat-radio-button>
+      <mat-radio-button  value="2">User</mat-radio-button>
+    </mat-radio-group>
+  </div>
+  <span style="color:red;" *ngIf="roleno && roleno.invalid && (roleno.dirty || roleno.touched)">Please select a role</span> 
+
+    <button type="submit" (click)="registrationForm()" [disabled]="!SignupForm.valid">Submit</button>
+  </form>
+  <br>
+  <button type="button"  (click)="islog()">Login</button>
+
+</div>
+</div>
+
+
+
+<!-- <div class="image">
+  <img src="./assets/image/tech2.jpg" alt="My Image">
+</div> -->
+
+
+
+
+
+
+<!-- 
+<div class="tform" style="background-color: rgb(203, 223, 217);"> 
+
+  <form [formGroup]="exampleForm" (ngSubmit)="onSubmit()">  
+  
+    <h2>Register Warrenty</h2>
+   
+  
+    <div class="namehold"> 
+    <div class="name1">    
+        <label>First Name: </label>   
+        <input  type="text" placeholder="First Name*" formControlName="firstname">  
+        <span  style="color:red;" *ngIf="first && first.invalid && (first.dirty || first.touched)">This field is not valid</span> 
+  
+    </div> 
+  
+   
+  
+    <div class="name2">    
+      <label>Last Name: </label>  
+      <input  type="text" placeholder="Last Name*" formControlName="lastname"> 
+      <span  style="color:red;" *ngIf="last && last.invalid && (last.dirty || last.touched)">This field is not valid</span> 
+
+    </div> 
+    </div> 
+  
+   
+   
+  
+    <div class="email">  
+      <label>Email: </label> 
+      <input  type="text" placeholder="Email*" formControlName="email">
+      <span  style="color:red;" *ngIf="email && email.invalid  && (email.dirty || email.touched)">This field is not valid</span> 
+    </div> 
+  
+   
+  
+    <div class="phone">  
+      <label>Phone no: </label> 
+      <input  type="text" placeholder="Enter 10 digit mobile number" formControlName="phone"> 
+      <span  style="color:red;" *ngIf="phone && phone.invalid && (phone.dirty || phone.touched)">This field is not valid</span>
+    </div> 
+  
+  
+    <div class="date">   
+      <label>Date of purchase: </label>  
+      <input style="padding-left: 20px;" type="date" placeholder="date" formControlName="date"> 
+      <span style="color:red;" *ngIf="date && date.invalid && (date.dirty || date.touched)">This field is not valid</span>  
+    </div> 
+  
+  
+    <div class="Address">   
+    <div> 
+      <label>street address: </label>  
+      <input style="padding-left: 20px;" type="text" placeholder="street" formControlName="street">  
+      <span style="color:red;" *ngIf="street && street.invalid && (street.dirty || street.touched)">This field is not valid</span> 
+    </div> 
+  
+   
+  
+    <div> 
+      <label>street address line 2: </label>   
+      <input style="padding-left: 20px;" type="text" placeholder="street" formControlName="street">  
+      <span style="color:red;" *ngIf="street && street.invalid && (street.dirty || street.touched)">This field is not valid</span>   
+    </div>  
+    </div> 
+  
+   
+  
+    <div class="button">   
+    <button type="submit" [disabled]="!exampleForm.valid">Submit</button>    
+    </div> 
+  </form>  
+  </div> 
+
+
+ -->
+
+ <!-- original code -->
+<!-- 
+<div class="body">
+  <div class="container">
+    <header>Warranty Registration</header>
+<form [formGroup]="exampleForm">
+
+  <div class="details personal">
+    <span class="title">Personal Details</span>
+
+  <div class="fields">
+    <div class="first">
+      <label>Enter First name</label>
+      <input type="text" placeholder="Ex:Vrushabh" formControlName="firstName" >
+      <span style="color:red;" *ngIf="user && user.invalid && (user.dirty || user.touched)">write firstnamefirst letter capital</span> 
+    </div>
+
+  <div class="first">
+    <label>Enter Last name</label>
+    <input type="text" placeholder="Ex:Gaddamwar" formControlName="lastName" >
+    <span style="color:red;" *ngIf="user2 && user2.invalid && (user2.dirty || user2.touched)">write lastname first letter capital</span> 
+  </div>
+
+  <div class="first">  
+    <label>Email: </label> 
+    <input  type="text" placeholder="Email*" formControlName="email">
+    <span  style="color:red;" *ngIf="email && email.invalid  && (email.dirty || email.touched)">This field is not valid</span> 
+  </div> 
+</div>
+
+  <div class="first">  
+    <label>Phone no: </label> 
+    <input  type="text" placeholder="Enter 10 digit mobile number" formControlName="phone"> 
+    <span  style="color:red;" *ngIf="phone && phone.invalid && (phone.dirty || phone.touched)">This field is not valid</span>
+  </div> 
+
+  
+  <div class="fields">   
+    <div class="first"> 
+      <label>street address: </label>  
+      <input style="padding-left: 20px;" type="text" placeholder="street" formControlName="street">  
+      <span style="color:red;" *ngIf="street && street.invalid && (street.dirty || street.touched)">This field is not valid</span> 
+    </div> 
+  
+    <div class="first"> 
+      <label>street address line 2: </label>   
+      <input style="padding-left: 20px;" type="text" placeholder="street" formControlName="street2">  
+      <span style="color:red;" *ngIf="street2 && street2.invalid && (street2.dirty || street2.touched)">This field is not valid</span>   
+    </div>
+  
+      <div class="first"> 
+        <label>City: </label>   
+        <input style="padding-left: 20px;" type="text" placeholder="city" formControlName="city">  
+        <span style="color:red;" *ngIf="city && city.invalid && (city.dirty || city.touched)">This field is not valid</span>   
+      </div> 
+    </div> 
+
+      <div class="first"> 
+        <label>Zip Code: </label>  
+        <input style="padding-left: 20px;" type="number" placeholder="zip" formControlName="zip">  
+        <span style="color:red;" *ngIf="zip && zip.invalid && (zip.dirty || zip.touched)">This field is not valid</span> 
+      </div> 
+      </div>
+
+<div style="font-size: 20px;">Product Information</div>
+
+<div class="fields">
+<div class="first"> 
+  <label>Model Number: </label>  
+  <input style="padding-left: 20px;" type="number" placeholder="model number" formControlName="model">  
+  <span style="color:red;" *ngIf="model && model.invalid && (model.dirty || model.touched)">This field is not valid</span> 
+</div>
+
+<div class="first">   
+  <label>Date of purchase: </label>  
+  <input style="padding-left: 20px;" type="date" placeholder="date" formControlName="date"> 
+  <span style="color:red;" *ngIf="date && date.invalid && (date.dirty || date.touched)">This field is not valid</span>  
+</div> 
+
+<div class="first">
+  <label>Purchase Source: </label>  
+  <select formControlName="selectorControl">
+    <option value="">-- Select Source --</option>
+    <option value="Shop">Shop</option>
+    <option value="Amazon">Amazon</option>
+    <option value="Flipkart">Flipkart</option>
+  </select>
+    <div *ngIf="selectorControl && selectorControl.invalid && (selectorControl.dirty || selectorControl.touched)">Please select an option.</div>
+</div>
+</div>
+
+<div style="font-size: 15px;margin-top: 10px;">Product Category</div> 
+<div> 
+   <input type="radio" id="moblie" name="moblie" value="moblie" formControlName="item">  
+   <label for="mobile">moblie</label><br>  
+
+   <input type="radio" id="laptop" name="laptop" value="laptop" formControlName="item">  
+   <label for="laptop">laptop</label><br>  
+
+   <input type="radio" id="earphone" name="earphone" value="earphone" formControlName="item">  
+   <label for="earphone">earphone</label>    
+</div>  
+
+  <button type="submit" (click)="submitForm()" [disabled]="!exampleForm.valid">Submit</button>
+  <div>
+    <button type="button" (click)="Allproduct()">Admin</button>
+  </div>
+</form>
+</div>
+</div> -->
+
+
+
+
+<!-- <div style="color: blueviolet; font-size:20px;margin-left: 20px;">User Details Form</div>
+<form [formGroup]="exampleForm" (ngSubmit)="onSubmit()">
+  <div class="form-container">
+    <label style="color:darkmagenta;">Enter First and Last name :</label>
+    <input type="text" placeholder="Ex:Vrushabh Gaddamwar" formControlName="firstName">
+    <span class="error" *ngIf="user && user.invalid" style="font-size: 15px;">Write firstname and lastname first letter capital</span>
+
+    <label style="color:darkmagenta;">Pick a Date :</label>
+    <input type="date" placeholder="date" formControlName="date">
+    <span class="error" *ngIf="date && date.invalid" style="font-size: 15px;">This field is not valid</span>
+  </div>
+  <button type="submit" [disabled]="!exampleForm.valid">Submit</button>
+</form> -->
+
+
+<!-- <nav>
+  <span class="logo">Cloth.com</span>
+  <ul class="menu">
+    <li class="menu-item">Home</li>
+    <li class="menu-item">Gallary</li>
+    <li class="menu-item">Contact</li>
+  </ul>
+</nav>
+<section class="hero">
+  <h1 class="main">Suit up with art</h1>
+  <h2 class="sub">100% cotton cloth</h2>
+</section>
+<section class="gallary-sec">
+<p class="para">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis facere consequuntur ipsa magnam at. Ad ipsam beatae laboriosam nisi esse praesentium, facilis, veritatis fugit aperiam eveniet exercitationem, culpa quia tempore.</p>
+<div class="gallary">
+<img src="https://www.shutterstock.com/image-photo/children-clothes-hanging-on-hangers-260nw-455876137.jpg" class="img1">
+<img src="https://www.shutterstock.com/image-photo/children-clothes-hanging-on-hangers-260nw-455876137.jpg" class="img1">
+<img src="https://www.shutterstock.com/image-photo/children-clothes-hanging-on-hangers-260nw-455876137.jpg" class="img1">
+<img src="https://www.shutterstock.com/image-photo/children-clothes-hanging-on-hangers-260nw-455876137.jpg" class="img1">
+</div>
+</section>
+ -->
+
+
+
+
+<!-- <form [formGroup]="myForm">
+  <label for="rupeeInput">Enter Rupee Value:</label>
+  <input type="number" id="rupeeInput" formControlName="rupeeInput">
+  <div *ngIf="myForm.controls.rupeeInput.errors">
+    <div *ngIf="myForm.controls.rupeeInput.errors.required">
+      Rupee value is required.
+    </div>
+    <div *ngIf="myForm.controls.rupeeInput.errors.pattern">
+      Rupee value can only contain digits.
+    </div>
+    <div *ngIf="myForm.controls.rupeeInput.errors.min">
+      Rupee value must be greater than zero.
+    </div>
+  </div>
+</form>
+ -->
+
+
+<!-- <div class="container">
+  <div class="row">
+    <div class="col" style="border: 1px solid red;">
+      column
+    </div>
+    <div class="col" style="border: 1px solid red;">
+      column
+    </div>
+    <div class="col" style="border: 1px solid red;">
+      column
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4" style="border: 1px solid red;">
+      column
+    </div>
+    <div class="col-lg-5" style="border: 1px solid red;">
+      column
+    </div>
+    <div class="col-6" style="border: 1px solid red;">
+      column
+    </div>
+  </div>
+</div>
+ -->
+
+<!-- <mat-toolbar color="red">
+  <mat-toolbar-row>
+    <button mat-icon-button>  
+       <mat-icon (click)="sidenav.toggle();">menu</mat-icon>
+    </button>
+    <h1 style="color: red;">YouTube</h1> 
+  <div style="margin:20%"><input type="tel" matInput placeholder="Search"><button>Search</button></div>
+  <div>notification</div>
+  <div style="margin:10%">Profile</div>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-sidenav-container style="position: fixed;">
+  <mat-sidenav style="background-color:rgb(216, 220, 223);" #sidenav opened="true" mode="side">
+    <mat-nav-list>
+      <a mat-list-item>Home</a>
+      <a mat-list-item>Shorts</a>
+      <a mat-list-item>Subscription</a>
+      <a mat-list-item>Originals</a>
+      <a mat-list-item>YouTubeMusic</a>
+      <a mat-list-item>Library</a>
+      <a mat-list-item>Downloads</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div style="height: 88vh;"></div>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<div style="margin-left: 12%; margin-right: 5%;margin-top:1%;" fxLayout="row" fxLayoutAlign="end">
+  <div style="height: 50px;background-color:rgb(204, 204, 214); border-radius: 8px;" fxFlex="25%">
+   <div style="margin-left: 5px;">
+   <div>All</div>
+  </div>
+  </div>
+  <div style="width: 80px;"></div>
+  <div style="height:50px; background-color:rgb(204, 204, 214); border-radius: 8px;" fxFlex="25%">
+    <div style="margin-left: 5px;">
+    <div>music</div>
+    </div>
+  </div>
+  <div style="width: 80px;"></div>
+  <div style="height: 50px;background-color:rgb(204, 204, 214); border-radius: 8px;" fxFlex="25%">
+    <div style="margin-left: 5px;">
+    <div>mixes</div>
+    </div>
+  </div>
+  <div style="width: 80px;"></div>
+  <div style="height: 50px;background-color:rgb(204, 204, 214);  border-radius: 8px;" fxFlex="25%">
+    <div style="margin-left: 5px;">
+    <div>news</div>
+    </div>
+  </div>
+  <div style="width: 80px;"></div>
+  <div style="height: 50px;background-color:rgb(204, 204, 214); border-radius: 8px;" fxFlex="25%">
+    <div style="margin-left: 5px;">
+    <div>Gaming</div>
+    </div>
+  </div>  
+  <div style="width: 80px;"></div>
+  <div style="height: 50px;background-color:rgb(204, 204, 214); border-radius: 8px;" fxFlex="25%">
+    <div style="margin-left: 5px;">
+    <div>shark tank</div>
+    </div>
+  </div>
+  </div>
+
+  <div style="margin-left: 12% ;margin-top:6%;" fxLayout="row">
+    <div style="height: 50px;background-color:blue; border-radius: 8px;" fxFlex="25%">
+      <mat-card class="example-card">
+        <img mat-card-image src="	https://i.ytimg.com/vi/RUovEL4iT8s/hq720.jpg?sqp=-…AFwAcABBg==&rs=AOn4CLB96TeEADOvH7C753EfwTK0AeS1Bg" alt="Photo of a Shiba Inu">
+        <mat-card-content>
+          <p>
+            SK Sir Ki Class | Official Trailer | Watch in Hindi, Tamil or Telugu | TVF  
+          </p>
+        </mat-card-content>
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>Shark Tank</mat-card-title>
+          <mat-card-subtitle>live episode</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-actions>
+          <button mat-button>LIKE</button>
+          <button mat-button>SHARE</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+
+
+    <div style="width: 80px;"></div>
+
+
+    <div style="height:50px; background-color: blueviolet; border-radius: 8px;" fxFlex="25%">
+      <mat-card class="example-card">
+        <img mat-card-image src="	https://i.ytimg.com/vi/G3hPH_bc0Ww/hq720.jpg?sqp=-…AFwAcABBg==&rs=AOn4CLDlsyqtg8v7Mgbhtf0NM06qwYSRkw" alt="Photo of a Shiba Inu">
+        <mat-card-content>
+          <p>
+            SK Sir Ki Class | Official Trailer | Watch in Hindi, Tamil or Telugu | TVF  
+          </p>
+        </mat-card-content>
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>Shark Tank</mat-card-title>
+          <mat-card-subtitle>live episode</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-actions>
+          <button mat-button>LIKE</button>
+          <button mat-button>SHARE</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>            
+    
+    
+    <div style="width: 80px;"></div>
+
+
+    <div style="height: 50px;background-color:rgb(249, 190, 14) ; border-radius: 8px;" fxFlex="25%">
+      <mat-card class="example-card">
+        <img mat-card-image src="	https://i.ytimg.com/vi/eITcjXAE-WY/hqdefault.jpg?s…AFwAcABBg==&rs=AOn4CLDBnFNOZMLkhd2LLFmaPUStqhmVOw" alt="Photo of a Shiba Inu">
+        <mat-card-content>
+          <p>
+            SK Sir Ki Class | Official Trailer | Watch in Hindi, Tamil or Telugu | TVF  
+          </p>
+        </mat-card-content>
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>Shark Tank</mat-card-title>
+          <mat-card-subtitle>live episode</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-actions>
+          <button mat-button>LIKE</button>
+          <button mat-button>SHARE</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+
+    <div style="width: 80px;"></div>
+
+    <div style="height: 50px;background-color:rgb(19, 185, 52) ; border-radius: 8px;" fxFlex="25%">
+      <div style="margin-left: 5px;">
+        <mat-card class="example-card">
+          <img mat-card-image src="	https://i.ytimg.com/vi/Fr-97irpIUg/hq720.jpg?sqp=-…AFwAcABBg==&rs=AOn4CLASSmxg9zHpS2vwHGBcny9ME588yQ" alt="Photo of a Shiba Inu">
+          <mat-card-content>
+            <p>
+              Clearest Moon Image Captured By a 16-Year-Old? | It Happens Only in India | National Geographic
+            </p>
+          </mat-card-content>
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>Shark Tank</mat-card-title>
+            <mat-card-subtitle>live episode</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-actions>
+            <button mat-button>LIKE</button>
+            <button mat-button>SHARE</button>
+          </mat-card-actions>
+        </mat-card>
+    </div>
+ -->
+
+
+
+
+
+
+
+<!-- <div class="container">
+  <div class="box1"><div style="text-align: center;margin-top: 30px;font-size: 30px; color: green;">CheckSammy</div></div>
+  <div class="box2" style="position: relative;">
+    <div class="boxin">
+    <div fxFlex="100%">
+      <div fxFlex="80%"><input type="tel" matInput placeholder="Search">Search</div>
+      <div fxFlex="10%">Setting</div>
+      <div fxFlex="10%">Profile</div>
+    </div>
+    </div>
+</div>  
+<mat-sidenav-container>
+<div class="list">
+  <mat-list-item>
+    <a class="col">DashBoard</a>
+  </mat-list-item>
+</div>
+<div class="list">
+  <mat-list-item>
+    <a class="col">Calender</a>
+  </mat-list-item>
+</div>
+<div class="list">
+  <mat-list-item>
+    <a class="col">Map</a>
+  </mat-list-item>
+</div>
+
+
+<div class="list">
+  <mat-list-item>
+    <a class="col">Facilitites directories</a>
+  </mat-list-item>
+</div>
+
+<div class="list">
+  <mat-list-item>
+    <a class="col">Client</a>
+  </mat-list-item>
+</div>
+
+<div class="list">
+  <mat-list-item>
+    <a class="col">Driver</a>
+  </mat-list-item>
+</div>
+
+<div class="list">
+  <mat-list-item>
+    <a class="col">Work</a>
+  </mat-list-item>
+</div>
+
+<div class="list">
+  <mat-list-item>
+    <a class="col">Bin fill overview</a>
+  </mat-list-item>
+</div>
+
+<div class="list">
+  <mat-list-item>
+    <a class="col">Master Enteries</a>
+  </mat-list-item>
+</div>
+
+<div class="list">
+  <mat-list-item>
+    <a class="col">Reports</a>
+  </mat-list-item>
+</div>
+</mat-sidenav-container>
+
+<div style="margin-left: 20%; margin-right: 5%;margin-top:1%;" fxLayout="row" fxLayoutAlign="end">
+<div style="height: 50px;background-color:blue; border-radius: 8px;" fxFlex="25%">
+ <div style="margin-left: 5px;"><div>Request</div>
+ <div>1125</div></div>
+</div>
+<div style="width: 80px;"></div>
+<div style="height:50px; background-color: blueviolet; border-radius: 8px;" fxFlex="25%">
+  <div style="margin-left: 5px;">
+  <div>Quotes</div>
+  <div>256</div>
+  </div>
+</div>
+<div style="width: 80px;"></div>
+<div style="height: 50px;background-color:rgb(249, 190, 14) ; border-radius: 8px;" fxFlex="25%">
+  <div style="margin-left: 5px;">
+  <div>Jobs</div>
+  <div>456</div>
+  </div>
+</div>
+<div style="width: 80px;"></div>
+<div style="height: 50px;background-color:rgb(19, 185, 52) ; border-radius: 8px;" fxFlex="25%">
+  <div style="margin-left: 5px;">
+  <div>Bids</div>
+  <div>456</div>
+  </div>
+</div>
+</div>
+
+<div class="flex-container">
+  <div class="flex-item">
+    <div>Driver status overview</div>
+    <div style="margin-top: 50px;">
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  
+  <ng-container matColumnDef="position">
+    <th mat-header-cell *matHeaderCellDef> No. </th>
+    <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+  </ng-container>
+
+ 
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+  </ng-container>
+
+  
+  <ng-container matColumnDef="weight">
+    <th mat-header-cell *matHeaderCellDef> Weight </th>
+    <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+  </ng-container>
+
+  
+  <ng-container matColumnDef="symbol">
+    <th mat-header-cell *matHeaderCellDef> Symbol </th>
+    <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+    </div>
+  </div>
+</div>
+ -->
